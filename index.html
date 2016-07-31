@@ -82,6 +82,64 @@
 	</div>
 -->
 	<script>
+var viewer = new Cesium.Viewer('cesiumContainer',{
+imageryProvider:new Cesium.OpenStreetMapImageryProvider({
+url:'http://cyberjapandata.gsi.go.jp/xyz/std/',
+credit: new Cesium.Credit('地理院タイル','','http://maps.gsi.go.jp/development/ichiran.html')
+}),
+baseLayerPicker:false
+});
+
+
+ viewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(139.4130,35.4122,5000000)
+    });
+
+
+var hcc0 = viewer.entities.add({
+  position: Cesium.Cartesian3.fromDegrees( 145.451071,44.333008,0.0),
+  name:'hcc0',
+  ellipse:{
+    semiMinorAxis : 50000.0,
+    semiMajorAxis : 50000.0,
+    height : 10.0,
+    material : Cesium.Color.GREEN.withAlpha(0.5),
+  }
+});
+
+var hcc1 = viewer.entities.add({
+  position: Cesium.Cartesian3.fromDegrees( 140.451071,40.333008,0.0),
+  name:'hcc1',
+  ellipse:{
+    semiMinorAxis : 50000.0,
+    semiMajorAxis : 50000.0,
+    height : 10.0,
+    material : Cesium.Color.GREEN.withAlpha(0.5),
+  }
+});
+
+var hcc2 = viewer.entities.add({
+  position: Cesium.Cartesian3.fromDegrees( 130.451071,30.333008,0.0),
+  name:'hcc2',
+  ellipse:{
+    semiMinorAxis : 50000.0,
+    semiMajorAxis : 50000.0,
+    height : 10.0,
+    material : Cesium.Color.GREEN.withAlpha(0.5),
+  }
+});
+
+var hcc3 = viewer.entities.add({
+  position: Cesium.Cartesian3.fromDegrees( 142.451071,27.333008,0.0),
+  name:'hcc3',
+  ellipse:{
+    semiMinorAxis : 50000.0,
+    semiMajorAxis : 50000.0,
+    height : 10.0,
+    material : Cesium.Color.GREEN.withAlpha(0.5),
+  }
+});
+
 
 	var blackOutDiv = document.getElementById("blackOut");
 	function viewPoints(_label, _lat, _lng, _heading, _pitch, _range) {
@@ -92,14 +150,6 @@
 		this.pitch = _pitch;
 		this.range = _range;
 	}
-
-	var viewPointsArray=[];
-		viewPointsArray[0]=new viewPoints("Balohan",4.633426,95.578812,0,-85,50000);
-		viewPointsArray[1]=new viewPoints("BlangEdit",4.633426,95.578812,0,-85,50000);
-		viewPointsArray[2]=new viewPoints("KetapangEdit",4.633426,95.578812,0,-85,50000);
-		viewPointsArray[3]=new viewPoints("Views from above",5.223058,95.737349,0,-85,180000);
-		viewPointsArray[4]=new viewPoints("First View",4.633426,95.578812,0,-20,1000);
-
 
 		function kmlData(_label, _url) {
 			this.label = _label;
